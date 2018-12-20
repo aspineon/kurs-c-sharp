@@ -8,5 +8,10 @@ namespace Bank
 {
     class SavingsAccount
     {
+        public string AccountNumber;
+        public decimal Balance;
+        public string FirstName;
+        public string LastName;
+        public long Pesel;
     }
 }
