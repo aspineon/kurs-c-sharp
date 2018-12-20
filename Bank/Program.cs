@@ -10,6 +10,9 @@ namespace Bank
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Nazwa: Bank");
+            Console.WriteLine("Autor: Marek Zając");
+            Console.ReadKey();
         }
     }
 }
