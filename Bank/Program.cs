@@ -15,13 +15,13 @@ namespace Bank
             Console.WriteLine(name);
             Console.WriteLine(author);
 
-            Account savingsAccount = new SavingsAccount("940000000001", 0.0M, "Marek", "Zając", 92010133333);
+            Account savingsAccount = new SavingsAccount(1, "Marek", "Zając", 92010133333);
             string fullName = savingsAccount.GetFullName();
             Console.WriteLine("Pierwsze konto w systemie dostał(-a): {0}", fullName);
 
-            Account secondSavingsAccount = new SavingsAccount("940000000002", 0.0M, "Marek", "Zając", 92010133333);
+            Account secondSavingsAccount = new SavingsAccount(2, "Marek", "Zając", 92010133333);
 
-            Account billingAccount = new BillingAccount("940000000003", 0.0M, savingsAccount.FirstName, savingsAccount.LastName, savingsAccount.Pesel);
+            Account billingAccount = new BillingAccount(3, savingsAccount.FirstName, savingsAccount.LastName, savingsAccount.Pesel);
 
             Printer printer = new Printer();
             printer.Print(savingsAccount);
