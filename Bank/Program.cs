@@ -10,27 +10,18 @@ namespace Bank
     {
         static void Main(string[] args)
         {
-            string name = "Nazwa: bank";
-            string author = "Autor: Marek Zając";
-            Console.WriteLine(name);
-            Console.WriteLine(author);
+            AccountsManager manager = new AccountsManager();
 
-            Account savingsAccount = new SavingsAccount(1, "Marek", "Zając", 92010133333);
-            string fullName = savingsAccount.GetFullName();
-            Console.WriteLine("Pierwsze konto w systemie dostał(-a): {0}", fullName);
+            manager.CreateBillingAccount("Marek", "Zajac", 1234567890);
+            manager.CreateSavingsAccount("Marek", "Zajac", 1234567890);
+            manager.CreateSavingsAccount("Aaaaa", "Bbbbb", 0987654321);
 
-            Account secondSavingsAccount = new SavingsAccount(2, "Marek", "Zając", 92010133333);
+            IList<Account> accounts = (IList<Account>)manager.GetAllAccounts();
 
-            Account billingAccount = new BillingAccount(3, savingsAccount.FirstName, savingsAccount.LastName, savingsAccount.Pesel);
+            Printer printer = new Printer();
 
-            IPrinter printer = new Printer();
-            printer.Print(savingsAccount);
-            printer.Print(secondSavingsAccount);
-
-            printer.Print(billingAccount);
-
-            savingsAccount = billingAccount;
-            printer.Print(savingsAccount);
+            printer.Print(accounts[0]);
+            printer.Print(accounts[2]);
 
             Console.ReadKey();
         }
