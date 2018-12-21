@@ -23,7 +23,7 @@ namespace Bank
 
             Account billingAccount = new BillingAccount(3, savingsAccount.FirstName, savingsAccount.LastName, savingsAccount.Pesel);
 
-            Printer printer = new Printer();
+            IPrinter printer = new Printer();
             printer.Print(savingsAccount);
             printer.Print(secondSavingsAccount);
 
